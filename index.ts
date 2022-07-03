@@ -5,7 +5,6 @@ import forge from 'node-forge';
 config();
 
 const app = express();
-const port = 4000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -91,5 +90,3 @@ app.post('/', (req: TotpExpressApiRequest, res: Response<TotpResponseBody>) => {
     ],
   });
 });
-
-app.listen(port);
