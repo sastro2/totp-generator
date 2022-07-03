@@ -2,9 +2,11 @@
   "name": "authenticator-server",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "16.15.0"
+  },
   "scripts": {
-    "start": "node index.ts",
-    "nmstart": "nodemon index.ts"
+    "start": "nodemon index.ts"
   },
   "license": "MIT",
   "dependencies": {
