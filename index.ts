@@ -1,3 +1,4 @@
+import cors from 'cors';
 import { config } from 'dotenv-safe';
 import express, { Request, Response } from 'express';
 import forge from 'node-forge';
@@ -8,6 +9,12 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
+const port = 4000;
+
+app.listen(port, () => {
+  console.log('1');
+});
 
 type TotpRequestBody = {
   twoFaSecret: string;
