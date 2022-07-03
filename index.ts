@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.listen(process.env.PORT, () => {});
+app.listen(process.env.PORT || 4000, () => {});
 
 type TotpRequestBody = {
   twoFaSecret: string;
