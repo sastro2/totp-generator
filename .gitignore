@@ -3,5 +3,3 @@
 .eslintcache
 
 *.tsbuildinfo
-
-node_modules

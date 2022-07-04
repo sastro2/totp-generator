@@ -17,7 +17,7 @@ type TotpRequestBody = {
   twoFaSecret: string;
   twoFaUnixT0: number;
   currentTimeInUnix: number;
-  asNumberArray: boolean;
+  asNumberArray?: boolean;
   applicationPassword: string;
 };
 
@@ -30,6 +30,7 @@ type TotpResponseBody =
   | { password: number[] | number };
 
 app.post('/', (req: TotpExpressApiRequest, res: Response<TotpResponseBody>) => {
+  console.log('hi');
   if (req.body.applicationPassword === process.env.PASSWORD) {
     const md = forge.hmac.create();
 
