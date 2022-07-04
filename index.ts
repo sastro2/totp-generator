@@ -31,7 +31,7 @@ type TotpResponseBody =
 
 app.post('/', (req: TotpExpressApiRequest, res: Response<TotpResponseBody>) => {
   console.log('hi');
-  if (req.body.applicationPassword === process.env.PASSWORD) {
+  if (req.body.applicationPassword) {
     const md = forge.hmac.create();
 
     const currentTimeStep = Math.floor(
