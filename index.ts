@@ -29,9 +29,7 @@ type TotpResponseBody =
   | { errors: { message: string }[] }
   | { password: number[] | number };
 
-app.get('/', () => {
-  console.log('works');
-});
+app.get('/', () => {});
 
 app.post('/', (req: TotpExpressApiRequest, res: Response<TotpResponseBody>) => {
   if (req.body.applicationPassword === process.env.PASSWORD) {
