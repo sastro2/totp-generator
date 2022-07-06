@@ -17,7 +17,7 @@ type TotpRequestBody = {
   twoFaSecret: string;
   twoFaUnixT0: number;
   currentTimeInUnix: number;
-  asNumberArray?: boolean;
+  asArrayOfDigits?: boolean;
   applicationPassword: string;
 };
 
@@ -75,7 +75,27 @@ app.post('/', (req: TotpExpressApiRequest, res: Response<TotpResponseBody>) => {
     const passwordAsStringArray = passwordAsNumber.toString().split('');
     const passwordAsNumberArray = passwordAsStringArray.map(Number);
 
-    if (req.body.asNumberArray) {
+    if (passwordAsNumber.toString().length < 6) {
+      const digit = passwordAsNumber % 10;
+
+      const newPasswordAsNumber = passwordAsNumber * 10 + digit;
+      const newPasswordAsStringArray = passwordAsNumber.toString().split('');
+      const newPasswordAsNumberArray = passwordAsStringArray.map(Number);
+
+      if (req.body.asArrayOfDigits) {
+        res.status(201).json({
+          password: newPasswordAsNumberArray,
+        });
+        return;
+      }
+
+      res.status(201).json({
+        password: newPasswordAsNumber,
+      });
+      return;
+    }
+
+    if (req.body.asArrayOfDigits) {
       res.status(201).json({
         password: passwordAsNumberArray,
       });
