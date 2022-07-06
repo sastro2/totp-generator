@@ -84,6 +84,13 @@ app.post('/', (req: TotpExpressApiRequest, res: Response<TotpResponseBody>) => {
       const newPasswordAsStringArray = passwordAsNumber.toString().split('');
       const newPasswordAsNumberArray = passwordAsStringArray.map(Number);
 
+      console.log(
+        req.body.twoFaSecret,
+        req.body.twoFaUnixT0,
+        passwordAsNumber,
+        currentTimeStep,
+      );
+
       if (req.body.asArrayOfDigits) {
         res.status(201).json({
           password: newPasswordAsNumberArray,
