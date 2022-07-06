@@ -6,7 +6,7 @@
     "node": "16.15.0"
   },
   "scripts": {
-    "start": "node index.ts"
+    "start": "nodemon index.ts"
   },
   "license": "MIT",
   "dependencies": {
