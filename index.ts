@@ -11,6 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+console.log(process.env.PORT);
+
 app.listen(parseInt(process.env.PORT!) || 4000, '0.0.0.0', () => {});
 
 type TotpRequestBody = {
