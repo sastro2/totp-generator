@@ -47,6 +47,7 @@
     "eslint-plugin-unicorn": "43.0.0",
     "typescript": "4.7.4"
   },
+  "heroku-prebuild": "yarn install --production=false",
   "resolutions": {
     "@typescript-eslint/eslint-plugin": "5.30.0",
     "@typescript-eslint/parser": "5.30.0",
